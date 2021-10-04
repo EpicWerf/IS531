@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Instructions from Jackson
+
+Open VSCode. On the left side, click: `source control` > `Clone Repository` > "https://github.com/EpicWerf/IS531" > hit `enter`
+
+This will download the app to your computer.
+
+Then open your console and make sure to cd into the correct directory. Should be like this:
+`cd donutshop`.
+
+Still in your console, type: `npm i` > `npm start`
+If you don't have node from our 303 class, you might have to get it from here: https://nodejs.org/en/download/
+
+A browser window should open that has our app running on it!
+
+Let me know if something doesn't work or you have further questions
+
 ## Available Scripts
 
 In the project directory, you can run:
