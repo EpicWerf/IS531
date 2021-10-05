@@ -12,7 +12,10 @@ Then open your console and make sure to cd into the correct directory. Should be
 `cd donutshop`.
 
 Still in your console, type: `npm i` > `npm start`
+
 If you don't have node from our 303 class, you might have to get it from here: https://nodejs.org/en/download/
+
+Keep that console open, but open a new console and type `npm run server`
 
 A browser window should open that has our app running on it!
 
