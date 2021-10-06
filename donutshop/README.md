@@ -21,6 +21,11 @@ A browser window should open that has our app running on it!
 
 Let me know if something doesn't work or you have further questions
 
+## Files to look at (from Jackson)
+`src > components > Donuts.jsx` this is the main page housing the functions needed to get the donuts from the table and display them in HTML format
+
+`src > server > server.js` this is the server file that is responsible for getting the donuts from the database and sending them to the client. It's the backend of the app running on express.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -3,7 +3,7 @@ const mysql = require('mysql');
 
 const app = express();
 const port = 8000;
-const table ='flavors';
+const table ='donut';
 
 const pool = mysql.createPool({
   host: process.env.MYSQL_HOST,
@@ -16,7 +16,7 @@ app.listen(port, () => {
   console.log(`App server now listening to port ${port}`);
 });
 
-app.get('/api/users', (req, res) => {
+app.get('/api/donuts', (req, res) => {
   pool.query(`select * from ${table}`, (err, rows) => {
     if (err) {
       res.send(err);
