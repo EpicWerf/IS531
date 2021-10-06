@@ -85,7 +85,7 @@ const Donuts = () => {
 				{/* array.map will go through all elements in an array and make a card out of them */}
 				<div className="row">
 					{filteredDonuts.map((donut) => (
-						<div className="card col-sm-4" key={donut.id}>
+						<div className="card col-sm-3" key={donut.id}>
 							<img
 								src={donut.image_url}
 								className="card-img-top img-fluid"
