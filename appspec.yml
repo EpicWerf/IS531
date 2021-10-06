@@ -1,21 +1,8 @@
 version: 0.0
 os: linux
 files:
- - source: donutshop/public
-   destination: /home/ec2-user/donutshop/public
- - source: donutshop/src
-   destination: /home/ec2-user/donutshop/src
- - source: donutshop/jsconfig.json
-   destination: /home/ec2-user/donutshop/jsconfig.json
- - source: donutshop/package-lock.json
-   destination: /home/ec2-user/donutshop/package-lock.json
- - source: donutshop/package.json
-   destination: /home/ec2-user/donutshop/package.json
- - source: donutshop/webpack.config.js
-   destination: /home/ec2-user/donutshop/webpack.config.js
- - source: donutshop/yarn.lock
-   destination: /home/ec2-user/donutshop/yarn.lock
-
+ - source: donutshop
+   destination: /home/ec2-user/donutshop
 hooks:
  BeforeInstall:
   - location: scripts/install_dependencies
