@@ -3,6 +3,8 @@ os: linux
 files:
  - source: donutshop
    destination: /home/ec2-user/donutshop
+ - source: scripts
+   destination: /home/ec2-user/scripts
 hooks:
  BeforeInstall:
   - location: scripts/install_dependencies
