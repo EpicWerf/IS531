@@ -1,7 +1,10 @@
 #!/bin/bash
-isExistApp = `pgrep node`
+doesNpmStartExist = `pm2 list || grep 'npm start'`
 if [[ -n  $isExistApp ]]; then
-    pm2 delete 'npm run server'
     pm2 delete 'npm start'        
 fi
 
+doesNpmRunServerExist = `pm2 list || grep 'npm run server'`
+if [[ -n  $isExistApp ]]; then
+    pm2 delete 'npm run server'
+fi
