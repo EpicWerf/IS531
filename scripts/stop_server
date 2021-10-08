@@ -1,10 +1,10 @@
 #!/bin/bash
-doesNpmStartExist = `pm2 list || grep 'npm start'`
+doesNpmStartExist=`pm2 list || grep 'npm start'`
 if [[ -n  $doesNpmStartExist ]]; then
     pm2 delete 'npm start'        
 fi
 
-doesNpmRunServerExist = `pm2 list || grep 'npm run server'`
+doesNpmRunServerExist=`pm2 list || grep 'npm run server'`
 if [[ -n  $doesNpmRunServerExist ]]; then
     pm2 delete 'npm run server'
 fi
