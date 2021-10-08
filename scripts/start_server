@@ -1,3 +1,4 @@
 #!/bin/bash
-sudo service httpd start
+pm2 start 5
+pm2 start 4
 

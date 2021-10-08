@@ -1,6 +1,7 @@
 #!/bin/bash
-isExistApp = `pgrep httpd`
+isExistApp = `pgrep node`
 if [[ -n  $isExistApp ]]; then
-    sudo service httpd stop        
+    pm2 start 5
+    pm2 start 4        
 fi
 
