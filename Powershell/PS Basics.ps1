@@ -92,3 +92,4 @@ $strComputers[3]
 $moreComputers = @("Desktop 1", "Desktop 2")
 $allComputers = $strComputers + $moreComputers
 $allComputers | foreach {"name: " + $_ + " length: " + $_.Length}
+
