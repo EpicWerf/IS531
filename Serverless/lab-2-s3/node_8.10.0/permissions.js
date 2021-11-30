@@ -13,22 +13,43 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
+/*
+
+SOLUTION
+
+You cannot just copy and paste this solution code because
+the bucket name needs to be your bucket name.
+
+If you run it "as is" it will not work!
+
+You must replace <FMI> with your bucket name.
+
+E.g.,
+
+2019-03-02-sally-catlostandfoundwebsite
+
+Keep the quotes around the bucket name, and  only
+replace the characters <FMI>.
+
+
+*/
 
 var
     AWS = require("aws-sdk"),
-    S3API = new AWS.<FMI>({
+    S3API = new AWS.S3({
         apiVersion: "2006-03-01",
-        region: "<FMI>"
+        region: "us-east-1"
     }),
     PUBLIC_POLICY_STR = JSON.stringify(require("../public_policy.json"));
 
 (function addPublicBucketPolicy(){
+    var
         params = {
-            Bucket: "<FMI>",
+            Bucket: "2021-11-29-jrvdw-catslostandfound",
             Policy: PUBLIC_POLICY_STR
 
         };
-        S3API.<FMI>(params, function(error, <FMI>){
+        S3API.putBucketPolicy(params, function(error, data){
             console.log(error, data);
         });
 })();

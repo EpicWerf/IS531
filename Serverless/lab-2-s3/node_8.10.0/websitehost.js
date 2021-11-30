@@ -13,27 +13,49 @@
 	See the License for the specific language governing permissions and
 	limitations under the License.
 */
-var 
-    AWS = require("<FMI>"),
-    S3API = new AWS.<FMI>({
+/*
+
+SOLUTION
+
+You cannot just copy and paste this solution code because
+the bucket name needs to be your bucket name.
+
+If you run it "as is" it will not work!
+
+You must replace <FMI> with your bucket name.
+
+E.g.,
+
+2019-03-02-sally-catlostandfoundwebsite
+
+Keep the quotes around the bucket name, and  only
+replace the characters <FMI>.
+
+
+
+*/
+
+var
+    AWS = require("aws-sdk"),
+    S3API = new AWS.S3({
         apiVersion: "2006-03-01",
-        region: "<FMI>"
+        region: "us-east-1"
     });
 
 (function makeBucketWebsiteEnabled(){
-    var 
+    var
         params = {
             Bucket: "<FMI>",
             WebsiteConfiguration: {
             	ErrorDocument: {
-					<FMI>: "error.html"
-				}, 
-				<FMI>: {
-					Suffix: "<FMI>"
+					Key: "error.html"
+				},
+				IndexDocument: {
+					Suffix: "index.html"
 				}
 			}
  		};
         S3API.putBucketWebsite(params, function(error, data){
-            console.log(<FMI>, data);
+            console.log(error, data);
         });
 })();
