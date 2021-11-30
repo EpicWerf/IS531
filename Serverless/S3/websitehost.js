@@ -1,4 +1,4 @@
-=begin
+/*
 	Copyright @2019 [Amazon Web Services] [AWS]
 
 	Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +12,9 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-=end
-=begin
+*/
+/*
+
 SOLUTION
 
 You cannot just copy and paste this solution code because
@@ -29,21 +30,32 @@ E.g.,
 
 Keep the quotes around the bucket name, and  only
 replace the characters <FMI>.
-=end
 
-require "aws-sdk-s3"
-s3_client = Aws::S3::Client.new(region: "us-east-1")
 
-resp = s3_client.put_bucket_website(
-    bucket: "<FMI>",
-    website_configuration: {
-        error_document: {
-            key: "error.html"
-        },
-        index_document: {
-            suffix: "index.html"
-        }
-    }
-)
 
-puts resp.to_h
+*/
+
+var
+    AWS = require("aws-sdk"),
+    S3API = new AWS.S3({
+        apiVersion: "2006-03-01",
+        region: "us-east-1"
+    });
+
+(function makeBucketWebsiteEnabled(){
+    var
+        params = {
+            Bucket: "2021-11-29-jrvdw-catslostandfound",
+            WebsiteConfiguration: {
+            	ErrorDocument: {
+					Key: "error.html"
+				},
+				IndexDocument: {
+					Suffix: "index.html"
+				}
+			}
+ 		};
+        S3API.putBucketWebsite(params, function(error, data){
+            console.log(error, data);
+        });
+})();

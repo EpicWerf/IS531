@@ -1,4 +1,4 @@
-=begin
+/*
 	Copyright @2019 [Amazon Web Services] [AWS]
 
 	Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,8 +12,10 @@
 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 	See the License for the specific language governing permissions and
 	limitations under the License.
-=end
-=begin
+*/
+
+/*
+
 SOLUTION
 
 You cannot just copy and paste this solution code because
@@ -29,21 +31,36 @@ E.g.,
 
 Keep the quotes around the bucket name, and  only
 replace the characters <FMI>.
-=end
-
-require "aws-sdk-s3"
-s3_resource = Aws::S3::Resource.new(region:'us-east-1')
-my_bucket = "<FMI>"
 
 
-obj = s3_resource.bucket(my_bucket).object("cat.jpg")
-obj.upload_file("../cat.jpg")
 
-puts obj.to_s
+*/
+var
+    AWS = require("aws-sdk"),
+    S3API = new AWS.S3({
+        apiVersion: "2006-03-01",
+        region: "us-east-1"
+    }),
+    FS = require("fs"),
+    bucket_name_str = "2021-11-29-jrvdw-catslostandfound";
 
-obj2 = s3_resource.bucket(my_bucket).object("index.html")
-obj2.upload_file("../index.html")
 
-puts obj2.to_s
+function uploadItemAsBinary(key_name_str, content_type_str, bin){
+    var params = {
+        Bucket: bucket_name_str,
+        Key: key_name_str,
+        Body: bin,
+        ContentType: content_type_str,
+        CacheControl: "max-age=0"
+    };
+    S3API.putObject(params, function(error, data){
+        console.log(error, data);
+    });
+}
 
-#TODO metadata
+(function init(){
+    var cat_pic_bin = FS.readFileSync("../cat.jpg");
+    uploadItemAsBinary("cat.jpg", "image/jpg", cat_pic_bin);
+    var index_page_bin = FS.readFileSync("../index.html");
+    uploadItemAsBinary("index.html", "text/html", index_page_bin);
+})();
